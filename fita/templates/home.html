@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yelp Restaurant Dashboard</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d32323;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn-container {
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: royalblue;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 15px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2c57c7;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #d32323;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🍽️ Yelp Restaurant Dashboard</h1>
+    <p>Explore restaurant details and predict customer sentiment easily.</p>
+
+    <div class="btn-container">
+        <a href="{% url 'register' %}" class="btn">➕ Register Restaurant</a>
+        <a href="{% url 'predict_page' %}" class="btn">💬 Sentiment Prediction</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>City</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for restaurant in restaurants %}
+            <tr>
+                <td>{{ restaurant.name }}</td>
+                <td>{{ restaurant.rating }}</td>
+                <td>{{ restaurant.city }}</td>
+                <td>{{ restaurant.category }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No restaurant data available</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="footer">Powered by Django • Yelp Data Visualization</div>
+
+</body>
+</html>
+

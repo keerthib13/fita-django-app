@@ -1,0 +1,14 @@
+0000000000000000000000000000000000000000 929c174e1280d24ab3a739cf47467d5da5af6460 keerthib13 <keerthisumathi382@gmail.com> 1761149170 +0530	commit (initial): Initial commit
+929c174e1280d24ab3a739cf47467d5da5af6460 0000000000000000000000000000000000000000 keerthib13 <keerthisumathi382@gmail.com> 1761150256 +0530	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 929c174e1280d24ab3a739cf47467d5da5af6460 keerthib13 <keerthisumathi382@gmail.com> 1761150256 +0530	Branch: renamed refs/heads/master to refs/heads/main
+929c174e1280d24ab3a739cf47467d5da5af6460 0000000000000000000000000000000000000000 keerthib13 <keerthisumathi382@gmail.com> 1761150270 +0530	Branch: renamed refs/heads/main to refs/heads/main
+929c174e1280d24ab3a739cf47467d5da5af6460 929c174e1280d24ab3a739cf47467d5da5af6460 keerthib13 <keerthisumathi382@gmail.com> 1761150270 +0530	Branch: renamed refs/heads/main to refs/heads/main
+929c174e1280d24ab3a739cf47467d5da5af6460 3c1159defff9b9884b5ed8a14dbb5abb3b6c615a keerthib13 <keerthisumathi382@gmail.com> 1761150607 +0530	commit: Add requirements.txt
+3c1159defff9b9884b5ed8a14dbb5abb3b6c615a 2392ec683c812a6b666fa34ca3933fa4b0deba0a keerthib13 <keerthisumathi382@gmail.com> 1761150902 +0530	commit: Added Procfile for deployment
+2392ec683c812a6b666fa34ca3933fa4b0deba0a 3f54e31274d513f0ef35b03f00639b979a02cc95 keerthib13 <keerthisumathi382@gmail.com> 1761154737 +0530	commit: Fix folder structure and Procfile
+3f54e31274d513f0ef35b03f00639b979a02cc95 b939cccc60f0ed118c77c2f0e54e4c0f9d457788 keerthib13 <keerthisumathi382@gmail.com> 1761177778 +0530	commit: Configured settings.py for Render
+b939cccc60f0ed118c77c2f0e54e4c0f9d457788 2a31dec99869fe654e828a54d92868f058b17960 keerthib13 <keerthisumathi382@gmail.com> 1761178050 +0530	pull origin main --rebase (start): checkout 2a31dec99869fe654e828a54d92868f058b17960
+2a31dec99869fe654e828a54d92868f058b17960 eeebd74ffe4a2b3ad5f427a9f4496a0830ac000e keerthib13 <keerthisumathi382@gmail.com> 1761211510 +0530	commit: Add correct Procfile for Render
+eeebd74ffe4a2b3ad5f427a9f4496a0830ac000e 48f60dc68163371bbeadb35908a533d374a0edd0 keerthib13 <keerthisumathi382@gmail.com> 1761212603 +0530	commit: Your commit message here
+48f60dc68163371bbeadb35908a533d374a0edd0 eb8a77dedf80e1c831d8fc90dad333a0effd831a keerthib13 <keerthisumathi382@gmail.com> 1761224274 +0530	commit: Deploy without Gunicorn
+eb8a77dedf80e1c831d8fc90dad333a0effd831a b939cccc60f0ed118c77c2f0e54e4c0f9d457788 keerthib13 <keerthisumathi382@gmail.com> 1761224819 +0530	rebase (abort): returning to refs/heads/main
