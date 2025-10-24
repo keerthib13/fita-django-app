@@ -1,22 +1,22 @@
-"""
-Django settings for online project.
-"""
-
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-2%oy%mtexsm*-4qu=ap^4b6qbbz=65&ukgf=h-@06!dp5tt1#u')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-secret-key-change-this')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+# Set to True temporarily to see errors, then change back to False
+DEBUG = True  # Change to False after fixing
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = [
+    'fita-django-app-18.onrender.com',
+    'localhost',
+    '127.0.0.1',
+    '.onrender.com'
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files on Render
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -40,12 +40,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'online.urls'
+ROOT_URLCONF = 'your_project_name.urls'  # Change 'your_project_name' to your actual project name
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Add this if you have a project-level templates folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -58,8 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'online.wsgi.application'
-
+WSGI_APPLICATION = 'your_project_name.wsgi.application'  # Change 'your_project_name'
 
 # Database
 DATABASES = {
@@ -68,7 +67,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -86,35 +84,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'Asia/Kolkata'
-
+TIME_ZONE = 'UTC'
 USE_I18N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] if os.path.exists(os.path.join(BASE_DIR, 'static')) else []
 
-# Whitenoise configuration
+# WhiteNoise configuration for static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Remove STATICFILES_DIRS if you don't have a static folder
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static',
-# ]
-
-# Media files (User uploaded content)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# CSRF settings for Render
+CSRF_TRUSTED_ORIGINS = [
+    'https://fita-django-app-19.onrender.com',
+    'https://*.onrender.com'
+]
 
+# Allow CSRF cookie to work properly
+CSRF_COOKIE_SECURE = False  # Set to True in production with HTTPS
+CSRF_COOKIE_HTTPONLY = False
+SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS

@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import Restaurant
-import joblib  # For ML models if you use them
-import os
 
 # ---------- HOME PAGE ----------
 def home(request):
@@ -19,10 +18,16 @@ def register(request):
             city = request.POST.get('city')
             category = request.POST.get('category')
 
-            Restaurant.objects.create(name=name, rating=rating, city=city, category=category)
+            Restaurant.objects.create(
+                name=name, 
+                rating=rating, 
+                city=city, 
+                category=category
+            )
             message = f"{name} added successfully!"
         except Exception as e:
             message = f"Error: {str(e)}"
+            print(f"Registration Error: {e}")  # Debug in console
 
     return render(request, 'register.html', {'message': message})
 
