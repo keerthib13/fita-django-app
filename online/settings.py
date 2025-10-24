@@ -10,12 +10,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2%oy%mtexsm*-4qu=ap^4b6qbbz=65&ukgf=h-@06!dp5tt1#u'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-2%oy%mtexsm*-4qu=ap^4b6qbbz=65&ukgf=h-@06!dp5tt1#u')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']  # For development. Change for production: ['.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -104,10 +104,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Whitenoise configuration
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Additional static files directories (if you have a static folder in your project root)
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+# Remove STATICFILES_DIRS if you don't have a static folder
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
 
 # Media files (User uploaded content)
 MEDIA_URL = '/media/'
