@@ -13,13 +13,16 @@ def home(request):
 def register(request):
     message = None
     if request.method == 'POST':
-        name = request.POST.get('name')
-        rating = request.POST.get('rating')
-        city = request.POST.get('city')
-        category = request.POST.get('category')
+        try:
+            name = request.POST.get('name')
+            rating = float(request.POST.get('rating'))
+            city = request.POST.get('city')
+            category = request.POST.get('category')
 
-        Restaurant.objects.create(name=name, rating=rating, city=city, category=category)
-        message = f"{name} added successfully!"
+            Restaurant.objects.create(name=name, rating=rating, city=city, category=category)
+            message = f"{name} added successfully!"
+        except Exception as e:
+            message = f"Error: {str(e)}"
 
     return render(request, 'register.html', {'message': message})
 
