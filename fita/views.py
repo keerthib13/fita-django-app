@@ -40,7 +40,7 @@ def predict(request):
         elif any(word in text.lower() for word in ['bad', 'poor', 'terrible', 'worst', 'awful']):
             sentiment = 'Negative 😞'
         else:
-            sentiment = 'Neutral 😐'
+            sentiment = 'Neutral 😐' 
 
         return JsonResponse({'sentiment': sentiment})
 
